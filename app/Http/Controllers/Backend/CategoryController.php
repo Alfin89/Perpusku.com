@@ -34,11 +34,11 @@ class CategoryController extends Controller
         $category = new Category();
         if ($request->hasFile('image')) 
         {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $fillname = time() .'.'. $ext;
-            $file->move('assets/uploads/category/',$fillname);
-            $category->image = $fillname;
+            $imageFile = $request->file('image');
+            $imageExt = $imageFile->getClientOriginalExtension();
+            $imageName = time() .'.'. $imageExt;
+            $imageFile->move('assets/uploads/category/',$imageName);
+            $category->image = $imageName;
         }
         $category->name = $request->input('name');
         $category->save();
@@ -76,11 +76,11 @@ class CategoryController extends Controller
             {
                 File::delete($path);
             } 
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $fillname = time() .'.'. $ext;
-            $file->move('assets/uploads/category/',$fillname);
-            $category->image = $fillname;
+            $imageFile = $request->file('image');
+            $imageExt = $imageFile->getClientOriginalExtension();
+            $imageName = time() .'.'. $imageExt;
+            $imageFile->move('assets/uploads/category/',$imageName);
+            $category->image = $imageName;
         }
         $category->name = $request->input('name');
         $category->update();

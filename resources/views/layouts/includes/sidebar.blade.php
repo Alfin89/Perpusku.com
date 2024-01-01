@@ -26,9 +26,9 @@
                         <span class="menu-arrow"></span></a>
                     <ul>
                         <li>
-                            <a href="saleslist.html">Daftar Buku</a>
+                            <a href="{{ url('book') }}">Daftar Buku</a>
                         </li>
-                        <li><a href="pos.html">Tambah Buku</a></li>
+                        <li><a href="{{ url('book/create') }}">Tambah Buku</a></li>
                     </ul>
                 </li>
                 <li class="submenu">

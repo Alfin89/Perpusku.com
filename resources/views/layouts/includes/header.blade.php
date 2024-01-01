@@ -99,8 +99,13 @@
                     <a class="dropdown-item" href="generalsettings.html"><i class="me-2"
                             data-feather="settings"></i>Settings</a>
                     <hr class="m-0" />
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                     <img src="{{ asset('assets/img/icons/log-out.svg') }}" class="me-2" alt="img" />
+                                        {{ __('Logout') }}
+                                    </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item logout pb-0" >
-                        <img src="{{ asset('assets/img/icons/log-out.svg') }}" class="me-2" alt="img" />Logout
                         @csrf
                     </form>
                 </div>

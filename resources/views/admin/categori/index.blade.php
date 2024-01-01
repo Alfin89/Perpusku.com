@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h4 class="card-title">Daftar Kategori</h4>
                 <div class="table-responsive dataview">
-                    <table class="table datatable">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>No</th>

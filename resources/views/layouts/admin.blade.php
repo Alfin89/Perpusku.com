@@ -16,7 +16,9 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}" />
 
-    <link rel="stylesheet" href="{{ asset('assets/js/dataTables.bootstrap4.min.js')}}" />
+    {{-- <link rel="stylesheet" href="{{ asset('assets/js/dataTables.bootstrap4.min.js')}}" /> --}}
+    <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css')}}">
+
 
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css')}}" />
@@ -48,7 +50,7 @@
 
     <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/dataTables.bootstrap4.min.js') }}"></script>
-
+    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/script.js') }}"></script>

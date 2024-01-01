@@ -17,7 +17,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Nama Kategori</label>
-                            <input type="text" name="name">
+                            <input type="text" name="name" required>
                         </div>
                     </div>
                     {{-- <div class="col-lg-12">
@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <label> Product Image</label>
                             <div class="image-upload">
-                                <input type="file" name="image">
+                                <input type="file" name="image" required>
                                 <div class="image-uploads">
                                     <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
                                     <h4>Drag and drop a file to upload</h4>

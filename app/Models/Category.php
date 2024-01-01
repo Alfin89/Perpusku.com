@@ -12,7 +12,7 @@ class Category extends Model
     
     public $timestamps = true;
     protected $table = 'categories';
-    protected $fillable = [ 'name', 'image', ''];
+    protected $fillable = [ 'name', 'image',];
 
     // public function getCreatedAtAttribute($date)
     // {

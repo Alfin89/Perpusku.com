@@ -21,12 +21,6 @@
                             <input value="{{ $category->name }}" type="text" name="name">
                         </div>
                     </div>
-                    {{-- <div class="col-lg-12">
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control"></textarea>
-                        </div>
-                    </div> --}}
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label> Product Image</label>
