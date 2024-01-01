@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -12,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::all();
+        return view('admin.categori.index', compact('category'));
     }
 
     /**
@@ -20,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categori.add');
     }
 
     /**
@@ -28,7 +31,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        if ($request->hasFile('image')) 
+        {
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $fillname = time() .'.'. $ext;
+            $file->move('assets/uploads/category/',$fillname);
+            $category->image = $fillname;
+        }
+        $category->name = $request->input('name');
+        $category->save();
+
+        return redirect('/category')->with('status', 'Kategori berhasil ditambahkan');
     }
 
     /**
@@ -44,7 +59,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.categori.edit', compact('category'));
     }
 
     /**
@@ -52,7 +68,24 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::find($id);
+        if ($request->hasFile('image'))
+        {
+        $path = 'assets/uploads/category/'.$category->image;
+            if (File::exists($path))
+            {
+                File::delete($path);
+            } 
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $fillname = time() .'.'. $ext;
+            $file->move('assets/uploads/category/',$fillname);
+            $category->image = $fillname;
+        }
+        $category->name = $request->input('name');
+        $category->update();
+
+        return redirect('/category')->with('status', 'Kategori berhasil diupdate');
     }
 
     /**
@@ -60,6 +93,16 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id);
+        if ($category->image) 
+        { 
+            $path = 'assets/uploads/category/'.$category->image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+        }
+        $category->delete();
+        return redirect('categories')->with('status', 'Category berhasil dihapus');
     }
 }

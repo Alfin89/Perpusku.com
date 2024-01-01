@@ -3,25 +3,25 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li class="active">
-                    <a href="index.html"><img src="assets/img/icons/dashboard.svg" alt="img" /><span>
+                    <a href="{{ url('dashboard') }}"><img src="{{ asset('assets/img/icons/dashboard.svg')}}" alt="img" /><span>
                             Dashboard</span>
                     </a>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="assets/img/icons/product.svg" alt="img" /><span>
+                    <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/product.svg') }}" alt="img" /><span>
                             Kategori</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
-                        <li>
+                        <li >
                             <a href="{{ url('category') }}">Daftar Kategori</a>
                         </li>
                         <li>
-                            <a href="addproduct.html">Tambah Kategori</a>
+                            <a href="{{ url('category/create ') }}">Tambah Kategori</a>
                         </li>
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="assets/img/icons/sales1.svg" alt="img" /><span>
+                    <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/sales1.svg') }}" alt="img" /><span>
                             Buku-buku</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
@@ -32,7 +32,7 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="assets/img/icons/users1.svg" alt="img" /><span>
+                    <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/users1.svg') }}" alt="img" /><span>
                             People</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
@@ -49,7 +49,7 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="assets/img/icons/settings.svg" alt="img" /><span>
+                    <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/settings.svg') }}" alt="img" /><span>
                             Settings</span>
                         <span class="menu-arrow"></span></a>
                     <ul>

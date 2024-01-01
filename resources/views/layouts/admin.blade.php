@@ -16,11 +16,10 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}" />
 
-    <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="{{ asset('assets/js/dataTables.bootstrap4.min.js')}}" />
 
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}" />
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css" />
-
+<link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
 </head>
 
@@ -41,21 +40,18 @@
         
     </div>
 
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 
-    <script src="assets/js/feather.min.js"></script>
+    <script src="{{ asset('assets/js/feather.min.js') }}"></script>
 
-    <script src="assets/js/jquery.slimscroll.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
 
-    <script src="assets/js/jquery.dataTables.min.js"></script>
-    <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dataTables.bootstrap4.min.js') }}"></script>
 
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="assets/plugins/apexchart/apexcharts.min.js"></script>
-    <script src="assets/plugins/apexchart/chart-data.js"></script>
-
-    <script src="assets/js/script.js"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 
 </html>

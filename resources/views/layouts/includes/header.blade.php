@@ -1,10 +1,10 @@
 <div class="header">
     <div class="header-left active">
         <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" alt="" />
+            <img src="{{ asset('assets/img/logo.png') }}" alt="" />
         </a>
         <a href="index.html" class="logo-small">
-            <img src="assets/img/logo-small.png" alt="" />
+            <img src="{{ asset('assets/img/logo-small.png') }}" alt="" />
         </a>
         <a id="toggle_btn" href="javascript:void(0);"> </a>
     </div>
@@ -27,17 +27,17 @@
                     <div class="searchinputs">
                         <input type="text" placeholder="Search Here ..." />
                         <div class="search-addon">
-                            <span><img src="assets/img/icons/closes.svg" alt="img" /></span>
+                            <span><img src="{{ asset('assets/img/icons/closes.svg') }}" alt="img" /></span>
                         </div>
                     </div>
-                    <a class="btn" id="searchdiv"><img src="assets/img/icons/search.svg" alt="img" /></a>
+                    <a class="btn" id="searchdiv"><img src="{{ asset('assets/img/icons/search.svg') }}" alt="img" /></a>
                 </form>
             </div>
         </li>
 
         <li class="nav-item dropdown">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                <img src="assets/img/icons/notification-bing.svg" alt="img" />
+                <img src="{{ asset('assets/img/icons/notification-bing.svg') }}" alt="img" />
                 <span class="badge rounded-pill">4</span>
             </a>
             <div class="dropdown-menu notifications">
@@ -53,7 +53,7 @@
                             <a href="activities.html">
                                 <div class="media d-flex">
                                     <span class="avatar flex-shrink-0">
-                                        <img alt="" src="assets/img/profiles/avatar-02.jpg"  />
+                                        <img alt="" src="{{ asset('assets/img/profiles/avatar-02.jpg') }}"  />
                                     </span>
                                     <div class="media-body flex-grow-1">
                                         <p class="noti-details">
@@ -79,13 +79,13 @@
 
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                <span class="user-img"><img src="assets/img/profiles/avator1.jpg" alt="" class="border border-2 border-black" />
+                <span class="user-img"><img src="{{ asset('assets/img/profiles/avator1.jpg') }}" alt="" class="border border-2 border-black" />
                     <span class="status online"></span></span>
             </a>
             <div class="dropdown-menu menu-drop-user">
                 <div class="profilename">
                     <div class="profileset">
-                        <span class="user-img"><img src="assets/img/profiles/avator1.jpg" alt="" />
+                        <span class="user-img"><img src="{{ asset('assets/img/profiles/avator1.jpg') }}" alt="" />
                             <span class="status online"></span></span>
                         <div class="profilesets">
                             <h6>John Doe</h6>
@@ -100,7 +100,7 @@
                             data-feather="settings"></i>Settings</a>
                     <hr class="m-0" />
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item logout pb-0" >
-                        <img src="assets/img/icons/log-out.svg" class="me-2" alt="img" />Logout
+                        <img src="{{ asset('assets/img/icons/log-out.svg') }}" class="me-2" alt="img" />Logout
                         @csrf
                     </form>
                 </div>
