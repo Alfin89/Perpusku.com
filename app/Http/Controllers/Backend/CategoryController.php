@@ -103,6 +103,6 @@ class CategoryController extends Controller
             }
         }
         $category->delete();
-        return redirect('categories')->with('status', 'Category berhasil dihapus');
+        return redirect('/category')->with('status', 'Category berhasil dihapus');
     }
 }

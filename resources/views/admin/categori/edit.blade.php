@@ -18,14 +18,14 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Nama Kategori</label>
-                            <input value="{{ $category->name }}" type="text" name="name">
+                            <input value="{{ $category->name }}" type="text" name="name" required>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label> Product Image</label>
                             <div class="image-upload">
-                                <input type="file" name="image">
+                                <input type="file" name="image" required>
                                 @if ($category->image)
                                     <img src="{{ asset('assets/uploads/category/'.$category->image) }}" width="200" alt="Category Image">
                                 @endif

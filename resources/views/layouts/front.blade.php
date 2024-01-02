@@ -9,7 +9,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive" />
     <meta name="author" content="Dreamguys - Bootstrap Admin Template" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Dashboard || Admin</title>
+    <title>User</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg" />
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
@@ -33,8 +33,6 @@
     <div class="main-wrapper">
         {{-- Header --}}
         @include('layouts.includes.header')
-        
-        @include('layouts.includes.sidebar')
 
         {{-- Content --}}
             @yield('content')

@@ -17,25 +17,25 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Judul Buku</label>
-                            <input type="text" name="title">
+                            <input type="text" name="title" required>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" name="description"></textarea>
+                            <textarea class="form-control" name="description" required></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Quantity</label>
-                            <input type="text" name="quantity" >
+                            <input type="text" name="quantity" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Kategori</label>
-                            <select class="select form-select" name="cate_id">
+                            <select class="select form-select" name="cate_id" required>
                                 <option value="">Pilih Kategori Buku</option>
                                 @foreach ($category as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <label>Cover Buku</label>
                             <div class="image-upload">
-                                <input type="file" name="cover">
+                                <input type="file" name="cover" required>
                                 <div class="image-uploads">
                                     <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
                                     <h4>Drag and drop a file to upload</h4>
@@ -59,32 +59,12 @@
                         <div class="form-group">
                             <label>File Buku</label>
                             <div class="image-upload">
-                                <input type="file" name="file">
+                                <input type="file" name="file" required>
                                 <div class="image-uploads">
                                     <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
                                     <h4>Drag and drop a file to upload</h4>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="product-list">
-                            <ul class="row">
-                                <li>
-                                    <div class="productviews">
-                                        <div class="productviewsimg">
-                                            <img src="assets/img/icons/macbook.svg" alt="img">
-                                        </div>
-                                        <div class="productviewscontent">
-                                            <div class="productviewsname">
-                                                <h2>macbookpro.jpg</h2>
-                                                <h3>581kb</h3>
-                                            </div>
-                                            <a href="javascript:void(0);" class="hideset">x</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                     <div class="col-lg-12">

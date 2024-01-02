@@ -32,7 +32,10 @@ class BookController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {     
+        $this->validate($request, [
+            'quantity' => 'required|numeric',
+        ]);
         $books = new Book();
 
         if ($request->hasFile('cover')) {
@@ -125,24 +128,28 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        $books = Book::find($id);
-        if ($books->cover) 
-        { 
-            $path = 'assets/uploads/category/'.$books->cover;
-            if(File::exists($path))
-            {
-                File::delete($path);
-            }
+        $book = Book::find($id);
+
+    if ($book->cover) 
+    { 
+        $pathCover = 'assets/uploads/books/'.$book->cover;
+        if (File::exists($pathCover))
+        {
+            File::delete($pathCover);
         }
-        if ($books->file) 
-        { 
-            $path = 'assets/uploads/category/'.$books->file;
-            if(File::exists($path))
-            {
-                File::delete($path);
-            }
+    }
+
+    if ($book->file) 
+    { 
+        $pathFile = 'assets/uploads/document/'.$book->file;
+        if (File::exists($pathFile))
+        {
+            File::delete($pathFile);
         }
-        $books->delete();
-        return redirect('books')->with('status', 'Buku berhasil dihapus');
+    }
+
+    $book->delete();
+
+    return redirect('/book')->with('status', 'Buku berhasil dihapus');
     }
 }

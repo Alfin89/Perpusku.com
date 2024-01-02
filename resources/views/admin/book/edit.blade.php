@@ -18,25 +18,25 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Judul Buku</label>
-                            <input type="text" name="title" value="{{ $book->title }}">
+                            <input type="text" name="title" value="{{ $book->title }}" required>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" name="description">{{ $book->description }}</textarea>
+                            <textarea class="form-control" name="description" required>{{ $book->description }}</textarea>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Quantity</label>
-                            <input type="text" name="quantity" value="{{ $book->quantity }}" >
+                            <input type="number" name="quantity" value="{{ $book->quantity }}" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-12">
                         <div class="form-group">
                             <label>Kategori</label>
-                            <select class="select form-select">
+                            <select class="select form-select" required>
                                 <option >{{ $book->category->name }}</option>
                             </select>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <label>Cover Buku</label>
                             <div class="image-upload">
-                                <input type="file" name="cover">
+                                <input type="file" name="cover" required>
                                 <div class="image-uploads">
                                     <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
                                     <h4>Drag and drop a file to upload</h4>
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <label>File Buku</label>
                             <div class="image-upload">
-                                <input type="file" name="file">
+                                <input type="file" name="file" required>
                                 <div class="image-uploads">
                                     <img src="{{ asset('assets/img/icons/upload.svg') }}" alt="img">
                                     <h4>Drag and drop a file to upload</h4>

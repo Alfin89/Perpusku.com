@@ -1,20 +1,50 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+    <meta name="description" content="POS - Bootstrap Admin Template" />
+    <meta name="keywords"
+        content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive" />
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>User</title>
 
-        <!-- Fonts -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}" />
+
+    {{-- <link rel="stylesheet" href="{{ asset('assets/js/dataTables.bootstrap4.min.js')}}" /> --}}
+    <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css')}}">
 
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}" />
-        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-    </head>
-    <body class="">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <style>
+    .library-info-container {
+        background-color: orange;
+        padding: 10%;
+        border-radius: 10px;
+        }
+
+    .library-title {
+    font-size: 36px;
+    color: #ffffff; /* Warna teks putih */
+    margin-bottom: 20px;    
+    }
+    </style>
+</head>
+
+<body>
+    <div id="global-loader">
+        <div class="whirly-loader"></div>
+    </div>
+
+    <div class="main-wrapper">
+        {{-- Header --}}
         <div class="header">
             <div class="header-left active">
                 <a href="index.html" class="logo">
@@ -23,7 +53,7 @@
                 <a href="index.html" class="logo-small">
                     <img src="{{ asset('assets/img/logo-small.png') }}" alt="" />
                 </a>
-                <a id="toggle_btn" href=""> </a>
+                <a id="toggle_btn" href="javascript:void(0);"> </a>
             </div>
         
             <a id="mobile_btn" class="mobile_btn" href="#sidebar">
@@ -44,10 +74,10 @@
                             <div class="searchinputs">
                                 <input type="text" placeholder="Search Here ..." />
                                 <div class="search-addon">
-                                    <span>Menu</span>
+                                    <span><img src="{{ asset('assets/img/icons/closes.svg') }}" alt="img" /></span>
                                 </div>
                             </div>
-                            <a class="btn" id="searchdiv"><img src="{{ asset('assets/img/icons/search.svg') }}" alt="img" />Menu</a>
+                            <a class="btn" id="searchdiv"><img src="{{ asset('assets/img/icons/search.svg') }}" alt="img" /></a>
                         </form>
                     </div>
                 </li>
@@ -96,37 +126,48 @@
         
                 <li class="nav-item dropdown has-arrow main-drop">
                     <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                        <span class="user-img"><img src="{{ asset('assets/img/profiles/avator1.jpg') }}" alt="" class="border border-2 border-black" />
+                        <span class="user-img"><i class="me-2" data-feather="user"></i>
                             <span class="status online"></span></span>
                     </a>
+                    {{-- dop --}}
                     <div class="dropdown-menu menu-drop-user">
                         <div class="profilename">
                             <div class="profileset">
-                                <span class="user-img"><img src="{{ asset('assets/img/profiles/avator1.jpg') }}" alt="" />
+                                <span class="user-img"><i class="me-2" data-feather="user"></i>
                                     <span class="status online"></span></span>
                                 <div class="profilesets">
-                                    <h6>John Doe</h6>
-                                    <h5>Admin</h5>
+                                    <h6>User</h6>
                                 </div>
                             </div>
                             <hr class="m-0" />
-                            <a class="dropdown-item" href="profile.html">
-                                <i class="me-2" data-feather="user"></i> My
-                                Profile</a>
-                            <a class="dropdown-item" href="generalsettings.html"><i class="me-2"
-                                    data-feather="settings"></i>Settings</a>
+                    
+                            @if (Route::has('login'))
+                                @auth
+                                    <a class="dropdown-item" href="{{ url('/home') }}">Home</a>
+                                @else
+                                    <a class="dropdown-item" href="{{ route('login') }}">Log in</a>
+                    
+                                    @if (Route::has('register'))
+                                        <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                                    @endif
+                                @endauth
+                            @endif
+                    
                             <hr class="m-0" />
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                               onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                                             <img src="{{ asset('assets/img/icons/log-out.svg') }}" class="me-2" alt="img" />
-                                                {{ __('Logout') }}
-                                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item logout pb-0" >
+
+                            <hr class="m-0" />
+                            
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <img src="{{ asset('assets/img/icons/log-out.svg') }}" class="me-2" alt="img" />
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="dropdown-item logout pb-0">
                                 @csrf
                             </form>
                         </div>
                     </div>
+                    
+                    {{-- /dop --}}
                 </li>
             </ul>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -144,130 +185,40 @@
             </div>
         </div>
 
-        {{-- book --}}
-        
-        <div class="page-wrapper ms-0">
-            <div class="content">
+        {{-- Content --}}
+            <div class="content mt-5">
                 <div class="row">
-                    <div class="col-lg-12 col-sm-12 tabs_wrapper">
-                        <div class="page-header container">
-                            <div class="page-title">
-                                <h4>Silahkan dibaca</h4>
-                                <h6>Budayakan membaca buku</h6>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="tab_content active" data-tab="fruits">
-                                <div class="row ">
-                                    <div class="col-lg-3 col-sm-6 d-flex ">
-                                        <div class="productset flex-fill active">
-                                            <div class="productsetimg">
-                                                <img src="assets/img/product/product29.jpg" alt="img">
-                                                <h6>Qty: 5.00</h6>
-                                                <div class="check-product">
-                                                    <i class="fa fa-check"></i>
-                                                </div>
-                                            </div>
-                                            <div class="productsetcontent">
-                                                <h5>Fruits</h5>
-                                                <h4>Orange</h4>
-                                                <h6>150.00</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6 d-flex ">
-                                        <div class="productset flex-fill">
-                                            <div class="productsetimg">
-                                                <img src="assets/img/product/product31.jpg" alt="img">
-                                                <h6>Qty: 1.00</h6>
-                                                <div class="check-product">
-                                                    <i class="fa fa-check"></i>
-                                                </div>
-                                            </div>
-                                            <div class="productsetcontent">
-                                                <h5>Fruits</h5>
-                                                <h4>Strawberry</h4>
-                                                <h6>15.00</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6 d-flex ">
-                                        <div class="productset flex-fill">
-                                            <div class="productsetimg">
-                                                <img src="assets/img/product/product35.jpg" alt="img">
-                                                <h6>Qty: 5.00</h6>
-                                                <div class="check-product">
-                                                    <i class="fa fa-check"></i>
-                                                </div>
-                                            </div>
-                                            <div class="productsetcontent">
-                                                <h5>Fruits</h5>
-                                                <h4>Banana</h4>
-                                                <h6>150.00</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6 d-flex ">
-                                        <div class="productset flex-fill">
-                                            <div class="productsetimg">
-                                                <img src="assets/img/product/product37.jpg" alt="img">
-                                                <h6>Qty: 5.00</h6>
-                                                <div class="check-product">
-                                                    <i class="fa fa-check"></i>
-                                                </div>
-                                            </div>
-                                            <div class="productsetcontent">
-                                                <h5>Fruits</h5>
-                                                <h4>Limon</h4>
-                                                <h6>1500.00</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6 d-flex ">
-                                        <div class="productset flex-fill">
-                                            <div class="productsetimg">
-                                                <img src="assets/img/product/product54.jpg" alt="img">
-                                                <h6>Qty: 5.00</h6>
-                                                <div class="check-product">
-                                                    <i class="fa fa-check"></i>
-                                                </div>
-                                            </div>
-                                            <div class="productsetcontent">
-                                                <h5>Fruits</h5>
-                                                <h4>Apple</h4>
-                                                <h6>1500.00</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-7 col-sm-12 col-12 d-flex">
+                        <img src="{{ asset('assets/img/perpustakaan.jpg') }}" width="100%" alt="">
                     </div>
+                    <div class="col-lg-5 col-sm-12 col-12 d-flex">
+                        <div class="library-info-container ms-2">
+                            <div class="library-info">
+                                <h2 class="library-title mt-5">Selamat Datang di Perpustakaan Digital</h2>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
                 </div>
             </div>
-        </div>
-        {{-- /book --}}
+        {{-- /Content --}}
+        
+    </div>
 
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 
+    <script src="{{ asset('assets/js/feather.min.js') }}"></script>
 
+    <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
 
+    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+</body>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            
-        </div>
-    </body>
 </html>
+

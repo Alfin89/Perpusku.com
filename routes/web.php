@@ -23,6 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/show/{id}', [HomeController::class, 'show'])->name('home.show');
+
 
 Route::middleware(['auth','isAdmin'])->group( function () {
     Route::get('/dashboard', function () {
@@ -42,5 +44,5 @@ Route::middleware(['auth','isAdmin'])->group( function () {
     Route::get('/book/show/{id}',[BookController::class, 'show'])->name('book.show');
     Route::get('/book/edit/{id}', [BookController::class, 'edit'])->name('book.edit');
     Route::put('/book/update/{id}', [BookController::class, 'update'])->name('book.update');
-    Route::get('/book/delete/{id}', [BookController::class, 'destroy'])->name('book.delete');
+    Route::delete('/book/delete/{id}', [BookController::class, 'destroy'])->name('book.delete');
 }); 
